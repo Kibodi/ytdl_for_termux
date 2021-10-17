@@ -4,7 +4,7 @@ termux-setup-storage
 echo Bitte Enter Drücken
 read
 apt install python ffmpeg
-pip install youtube-dl ffmpeg-python ffmpeg
+pip install yt-dlp ffmpeg-python ffmpeg
 mkdir ~/bin
 mkdir ~/storage/shared/Youtube
 cat ~/ytdl_for_termux/ytdl.sh > ~/bin/termux-url-opener
