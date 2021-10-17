@@ -40,11 +40,11 @@ select option in $options; do
 	fi
 	
 	if [ $res = "best" ]; then
-		youtube-dl -f "bestvideo+bestaudio" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --merge-output-format mp4 $url 
+		yt-dlp -f "bestvideo+bestaudio" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --merge-output-format mp4 $url 
 	elif [ $res = "audio" ]; then
-		youtube-dl -x --audio-format mp3 --audio-quality 0 -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s" $url
+		yt-dlp -x --audio-format mp3 --audio-quality 0 -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s" $url
 	else
-		youtube-dl -f "bestvideo[height<=?$res]+bestaudio/best" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --merge-output-format mp4 $url
+		yt-dlp -f "bestvideo[height<=?$res]+bestaudio/best" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --merge-output-format mp4 $url
 	fi
 	
 	exit
