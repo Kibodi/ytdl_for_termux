@@ -45,7 +45,7 @@ select option in $options; do
 	elif [ $res = "audio" ]; then
 		yt-dlp -x --audio-format mp3 --audio-quality 0 -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s" $url
 	else
-		yt-dlp -f "bestvideo[height=?$res][ext=mp4]/bestvideo[height<=?$res][ext=webm]/bestvideo+bestaudio" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --merge-output-format mp4 $url
+		yt-dlp -f "bestvideo[height=?$res][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=?$res][ext=webm]+bestaudio[ext=m4a]/bestvideo+bestaudio[ext=m4a]" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --merge-output-format mp4 $url
 	fi
 	
 	exit
