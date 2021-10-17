@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 url=$1
-echo "* = May not Playable"
+echo "* = May not playable"
 options="144p 240p 360p 480p 720p 1080p 1440p* 2160p* 4320p* beste* Audio"
 select option in $options; do
 	if [ "144p" = $option ]; then
