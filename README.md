@@ -1,9 +1,13 @@
 # ytdl_for_termux
-I want to download videos with youtube-dl on Android easily, so I have coded this!
 
-# Installation:
-Install [Termux](https://play.google.com/store/apps/details?id=com.termux)
-and open it.
+* [Installation](#installation)
+* [How to use](#how-to-use)
+* [Update](#update)
+* [Issues](#issues)
+
+## Installation
+Install [Termux](https://f-droid.org/de/packages/com.termux/)
+from F-Droid and open it.
 Type in or copy&paste in the commands in that order:
 ```
 pkg upgrade
@@ -21,14 +25,14 @@ The last command installs everything needed and copys a Script(take a look in th
 A message will appear, which asks for permissions to the storage. (This is importaint, because else you will not find the downloaded Files!)
 When everything is finished, you must type
 ```exit```
-and close the App!
+and close the App! Make shure Termux has the Draw/Display Over Other Apps permission. You should find it in the App-Info of Termux.
 
-#How to use:
+## How to use
 Go to the YouTube App and chose a Video! Tap on Share and chose Termux!
 Termux will open, and show some Options, to chose from! (For Example "2) 240p"). Type in the Number next to the resolution you want and press enter!
 Now it will download the Video! It works with Playlists too!
 
-#Update:
+## Update
 You noticed, that the download is slow? Maybe an update can fix it!
 Open Termux and type in or copy&paste in the commands:
 ```
@@ -39,3 +43,7 @@ When everything is finished, you must type
 ```exit```
 and close the App!
 That's it!
+
+## Issues
+If your media player doesn't want to play the file, than it doesn't know the Codec. I recommend to use [VLC](https://play.google.com/store/apps/details?id=org.videolan.vlc)
+instead.

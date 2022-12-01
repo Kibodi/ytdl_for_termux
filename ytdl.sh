@@ -1,7 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
+echo 
 url=$1
-echo "* = May not playable"
-options="144p 240p 360p 480p 720p 1080p 1440p* 2160p* 4320p* beste* Audio"
+echo "* = May not playable!"
+options="144p 240p 360p 480p 720p 1080p 1440p* 2160p* 4320p* beste* Music"
 select option in $options; do
 	if [ "144p" = $option ]; then
 		clear
@@ -33,19 +34,19 @@ select option in $options; do
 	elif [ "beste*" = $option ]; then
 		clear
 		res="best"
-	elif [ "Audio" = $option ]; then
+	elif [ "Music" = $option ]; then
 		clear
-		res="audio"
+		res="music"
 	else
 		clear
 	fi
 	
 	if [ $res = "best" ]; then
-		yt-dlp -f "bestvideo+bestaudio" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --merge-output-format mp4 $url 
-	elif [ $res = "audio" ]; then
-		yt-dlp -x --audio-format mp3 --audio-quality 0 -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s" $url
+		yt-dlp -f "bestvideo+bestaudio" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --remux-video mp4 $url 
+	elif [ $res = "music" ]; then
+		yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(artist,uploader)s - %(title)s.%(ext)s" $url
 	else
-		yt-dlp -f "bestvideo[height=?$res][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=?$res][ext=webm]+bestaudio[ext=m4a]/bestvideo+bestaudio[ext=m4a]" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --merge-output-format mp4 $url
+		yt-dlp -f "bestvideo[height=?$res][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=?$res][ext=webm]+bestaudio[ext=m4a]/bestvideo+bestaudio[ext=m4a]" -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s-%(id)s.%(ext)s" --remux-video mp4 $url
 	fi
 	
 	exit
